@@ -16,7 +16,7 @@ const transport = createTransport({
     memory: 64,
     ttl: 5000,
   },
-  stream: createWriteStream("signals.jsonl", { flags: "a" }),
+  stream: process.stdout,
 });
 
 app.decorate("transport", transport);
