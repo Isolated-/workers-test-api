@@ -8,7 +8,17 @@ Send `convert` in the body:
 
 ```json
 {
-  "convert": "\{\"name\"\: \"my string\"\}"
+  "convert": "{\"name\": \"my string\"}"
+}
+```
+
+Or:
+
+```json
+{
+  "convert": {
+    "my": "object"
+  }
 }
 ```
 
