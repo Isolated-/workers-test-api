@@ -53,10 +53,10 @@
   resolved "https://registry.yarnpkg.com/@xgsd/engine/-/engine-1.0.0-stable.tgz#a7c2b121a9572f7c23297d588ceb569fc6eb71ca"
   integrity sha512-dUzQjUfMsY5KjomWMHZMSZTxwTNQUMKj7T6jpkjs4rroRYXXM0GF7O6kUoIf+3qiBhAmbYoGsL1QMRflOdASjA==
 
-"@xgsd/workers@1.1.0-rc2":
-  version "1.1.0-rc2"
-  resolved "https://registry.yarnpkg.com/@xgsd/workers/-/workers-1.1.0-rc2.tgz#7524d261c4176fbe517533fcf1bfcc2959b7bbf6"
-  integrity sha512-pih8TJXemhxcnl4NZqY9/ZPOzlNSQcIkh0LpQvLOD9lYTQ++5HuLeELSQT8kd/EG19gdtwqlDOSrgnf0qUUWtg==
+"@xgsd/workers@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@xgsd/workers/-/workers-1.1.0.tgz#32a09f549467281d7f3fac29f5c240ec14ef4e39"
+  integrity sha512-XHjTmy94ZMAg77/xiEMCjf3Ci29hvGBDczQe6FU9ngConXr2iDrnb2B5AjbB8S/S94KMkcTAIo0jYTJJV3Bb2Q==
   dependencies:
     "@xgsd/engine" "1.0.0-stable"
 
