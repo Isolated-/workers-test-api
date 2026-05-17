@@ -9,8 +9,8 @@ const toMB = (bytes) => Number((bytes / 1024 / 1024).toFixed(2));
 
 let memoryCount = 0;
 
-const transport = createTransport({
-  entry: join(process.cwd(), "app", "json.js"),
+const hashTransport = createTransport({
+  entry: join(process.cwd(), "app", "hash.js"),
   contractVersion: "v1.1",
   limits: {
     memory: 64,
@@ -19,13 +19,30 @@ const transport = createTransport({
   stream: process.stdout,
 });
 
-app.decorate("transport", transport);
+app.decorate("transport", hashTransport);
 
-async function handle(req, res) {
+app.all("/", async (req, res) => {
+  return res.send({
+    endpoints: [
+      {
+        method: "POST",
+        path: "/hash",
+      },
+    ],
+  });
+});
+
+app.post("/hash", async (req, res) => {
+  if (!req.body || !req.body.data) {
+    return res.status(400).send({
+      error: {
+        message: `missing "data" in request body`,
+      },
+    });
+  }
+
   try {
-    const data = { ...req.body, ...req.query };
-
-    const result = await app.transport(data);
+    const result = await app.transport({ data: req.body });
 
     res.header("x-workers-version", version);
     res.header("x-node-version", process.version);
@@ -40,10 +57,6 @@ async function handle(req, res) {
       },
     });
   }
-}
-
-app.all("/json", async (req, res) => {
-  return handle(req, res);
 });
 
 app.listen(
